@@ -5,30 +5,29 @@ using Tarea;
 List<Tareas> TareasPendientes = new List<Tareas>();
 List<Tareas> TareasRealizadas = new List<Tareas>(); 
 
-// int cantidad = 0;
+int cantidad = 0;
+string? descripcion;
+int duracion = 0;
+int id;
 
-// Console.WriteLine("Ingrese la cantidad de tareas que desea cargar: ");
-// bool control = int.TryParse(Console.ReadLine(), out cantidad);
+Console.WriteLine("Ingrese la cantidad de tareas: ");
+int.TryParse(Console.ReadLine(), out cantidad);
 
-// for (int i = 0; i < cantidad; i++)
-// {
-//     TareasPendientes[i].TareaID = i + 1;
-//     Console.WriteLine("Ingrese una deescripcion: ");
-//     TareasPendientes[i].Descripcion = Console.ReadLine();
-//     Console.WriteLine("Ingrese la duracion: ");
-//     //int.TryParse(Console.ReadLine(), out TareasPendientes[i].Duracion);
-//     TareasPendientes[i].Duracion = Console.Read();    
-// }
+for (int i = 0; i < cantidad; i++)
+{
+    id = i+1;
+    Console.WriteLine("Ingrese la descripcion de la tarea: ");
+    descripcion = Console.ReadLine();
+    duracion = 1 * 2;
 
-Tareas tarea;
+    var Tareax = new Tareas(id, descripcion, duracion);
 
-tarea.Descripcion = "hohhl";
-tarea.Duracion = 100;
-tarea.TareaID = 1;
-
-TareasPendientes.Add(tarea);
+    TareasPendientes.Add(Tareax);
+}
 
 foreach (var tar in TareasPendientes)
 {
-    Console.WriteLine(tarea);
+    Console.WriteLine("Tarea ID: " + tar.TareaID);
+    Console.WriteLine("Descripcion: " + tar.Descripcion);
+    Console.WriteLine("Duracion: " + tar.Duracion);
 }
