@@ -12,7 +12,6 @@ internal class Program
         int cantidad = 0;
         string? descripcion;
         int duracion = 0;
-        int id;
 
         Console.WriteLine("Ingrese la cantidad de tareas: ");
         int.TryParse(Console.ReadLine(), out cantidad);
@@ -20,19 +19,17 @@ internal class Program
         //cargar tareas
         for (int i = 0; i < cantidad; i++)
         {
-            id = i + 1;
             Console.WriteLine("Ingrese la descripcion de la tarea: ");
             descripcion = Console.ReadLine();
-            duracion = 1 * 2;
+            duracion = i * 25;
 
-            var Tareax = new Tareas(id, descripcion, duracion);
-
+            var Tareax = new Tareas(i+1, descripcion, duracion);
             TareasPendientes.Add(Tareax);
         }
 
+        //mover tareas
         int estado = 0;
 
-        //mover tareas
         Console.WriteLine("-------TAREAS PENDIENTES-------");
         for (int i = 0; i < TareasPendientes.Count; i++)
         {
@@ -52,9 +49,9 @@ internal class Program
             }
         }
 
+        //mostrar tareas
         Console.WriteLine("--------TAREAS REALIZADAS--------");
         MostrarTareas(TareasRealizadas);
-
         Console.WriteLine("-------TAREAS PENDIENTES-------");
         MostrarTareas(TareasPendientes);
 
