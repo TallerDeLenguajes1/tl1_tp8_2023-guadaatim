@@ -10,9 +10,7 @@ public class Tareas{
     public string? Descripcion { get => descripcion; set => descripcion = value; }
     public int Duracion { get => duracion; set => duracion = value; }
 
-    public Tareas()
-    {}
-
+    //constructoras
     public Tareas(int tareaID, string? descripcion, int duracion)
     {
         TareaID = tareaID;
