@@ -56,9 +56,7 @@ internal class Program
         MostrarTareas(TareasPendientes);
 
         //buscar tarea por descripcion
-        BuscarTarea(TareasPendientes);
-
-        
+        BuscarTarea(TareasPendientes); 
     }
 
     private static void MostrarTareas(List<Tareas> tareita)
