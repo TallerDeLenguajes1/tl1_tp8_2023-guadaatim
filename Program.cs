@@ -25,7 +25,7 @@ for (int i = 0; i < cantidad; i++)
     TareasPendientes.Add(Tareax);
 }
 
-int realizar = 0;
+int estado = 0;
 int j = 0;
 
 Console.WriteLine("-------TAREAS PENDIENTES-------");
@@ -36,16 +36,15 @@ for (int i = 0; i < cantidad; i++)
     Console.WriteLine("Duracion: " + TareasPendientes[i].Duracion);
 
     Console.WriteLine("Realizo la tarea? 1-si, 0-no: ");
-    int.TryParse(Console.ReadLine(), out realizar);
+    int.TryParse(Console.ReadLine(), out estado);
 
-    if (realizar == 1)
+    if (estado == 1)
     {
         TareasRealizadas.Add(TareasPendientes[i]);
         TareasPendientes.RemoveAt(i);
         cantidad--;
         i--;
     }
-
 }
 
 Console.WriteLine("--------TAREAS REALIZADAS--------");
@@ -63,4 +62,23 @@ foreach (var tar in TareasPendientes)
     Console.WriteLine("Tarea ID: " + tar.TareaID);
     Console.WriteLine("Descripcion: " + tar.Descripcion);
     Console.WriteLine("Duracion: " + tar.Duracion);
+}
+
+string? descripcionbuscada;
+
+Console.WriteLine("Ingrese la descripcion de la tarea que desea buscar: ");
+descripcionbuscada = Console.ReadLine();
+
+foreach (var tar in TareasPendientes)
+{
+    if (tar.Descripcion.Contains(descripcionbuscada))
+    {
+        Console.WriteLine("Tarea encontrada!!!!!");
+        Console.WriteLine("Tarea ID: " + tar.TareaID);
+        Console.WriteLine("Descripcion: " + tar.Descripcion);
+        Console.WriteLine("Duracion: " + tar.Duracion);
+    } else
+    {
+        Console.WriteLine("No se encontro la tarea :((");
+    }
 }
