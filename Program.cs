@@ -25,8 +25,41 @@ for (int i = 0; i < cantidad; i++)
     TareasPendientes.Add(Tareax);
 }
 
+int realizar = 0;
+int j = 0;
+
+Console.WriteLine("-------TAREAS PENDIENTES-------");
+for (int i = 0; i < cantidad; i++)
+{
+    Console.WriteLine("Tarea ID: " + TareasPendientes[i].TareaID);
+    Console.WriteLine("Descripcion: " + TareasPendientes[i].Descripcion);
+    Console.WriteLine("Duracion: " + TareasPendientes[i].Duracion);
+
+    Console.WriteLine("Realizo la tarea? 1-si, 0-no: ");
+    int.TryParse(Console.ReadLine(), out realizar);
+
+    if (realizar == 1)
+    {
+        TareasRealizadas.Add(TareasPendientes[i]);
+        TareasPendientes.RemoveAt(i);
+        cantidad--;
+        i--;
+    }
+
+}
+
+Console.WriteLine("--------TAREAS REALIZADAS--------");
+foreach (var tar in TareasRealizadas)
+{
+    Console.WriteLine("Tarea ID: " + tar.TareaID);
+    Console.WriteLine("Descripcion: " + tar.Descripcion);
+    Console.WriteLine("Duracion: " + tar.Duracion);
+}
+
+Console.WriteLine("-------TAREAS PENDIENTES-------");
 foreach (var tar in TareasPendientes)
 {
+
     Console.WriteLine("Tarea ID: " + tar.TareaID);
     Console.WriteLine("Descripcion: " + tar.Descripcion);
     Console.WriteLine("Duracion: " + tar.Duracion);
