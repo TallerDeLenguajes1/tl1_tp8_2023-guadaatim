@@ -58,25 +58,10 @@ internal class Program
         Console.WriteLine("-------TAREAS PENDIENTES-------");
         MostrarTareas(TareasPendientes);
 
-        string? descripcionbuscada;
+        //buscar tarea por descripcion
+        BuscarTarea(TareasPendientes);
 
-        Console.WriteLine("Ingrese la descripcion de la tarea que desea buscar: ");
-        descripcionbuscada = Console.ReadLine();
-
-        foreach (var tar in TareasPendientes)
-        {
-            if (tar.Descripcion.Contains(descripcionbuscada))
-            {
-                Console.WriteLine("Tarea encontrada!!!!!");
-                Console.WriteLine("Tarea ID: " + tar.TareaID);
-                Console.WriteLine("Descripcion: " + tar.Descripcion);
-                Console.WriteLine("Duracion: " + tar.Duracion);
-            }
-            else
-            {
-                Console.WriteLine("No se encontro la tarea :((");
-            }
-        }
+        
     }
 
     private static void MostrarTareas(List<Tareas> tareita)
@@ -88,6 +73,28 @@ internal class Program
             Console.WriteLine("Duracion: " + tar.Duracion);
         }
         
+    }
+
+    private static void BuscarTarea(List<Tareas> tareita)
+    {
+        string? descripcionbuscada;
+        Console.WriteLine("Ingrese la descripcion de la tarea que desea buscar: ");
+        descripcionbuscada = Console.ReadLine();
+
+        foreach (var tar in tareita)
+        {
+            if (tar.Descripcion.Contains(descripcion))
+            {
+                Console.WriteLine("Tarea encontrada!!!!!");
+                Console.WriteLine("Tarea ID: " + tar.TareaID);
+                Console.WriteLine("Descripcion: " + tar.Descripcion);
+                Console.WriteLine("Duracion: " + tar.Duracion);
+            }
+            else
+            {
+                Console.WriteLine("No se encontro la tarea :((");
+            }
+        }
     }
 
 }
