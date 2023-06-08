@@ -57,6 +57,8 @@ internal class Program
 
         //buscar tarea por descripcion
         BuscarTarea(TareasPendientes); 
+
+
     }
 
     private static void MostrarTareas(List<Tareas> tareita)
@@ -78,7 +80,7 @@ internal class Program
 
         foreach (var tar in tareita)
         {
-            if (tar.Descripcion.Contains(descripcion))
+            if (tar.Descripcion.Contains(descripcionbuscada))
             {
                 Console.WriteLine("Tarea encontrada!!!!!");
                 Console.WriteLine("Tarea ID: " + tar.TareaID);
@@ -92,4 +94,21 @@ internal class Program
         }
     }
 
+    private static void GuardarArchivo(List<Tareas> tareita)
+    {
+        int suma = 0;
+        string? ruta = @"C:\taller1\tl1_tp8_2023-guadaatim";
+
+        foreach (var tar in tareita)
+        {
+            suma += tar.Duracion;
+        }
+
+        StreamWriter sw = new StreamWriter(ruta + "cantidadhorastrabajadas", true);
+    }
+
 }
+
+//StreamWriter sw = new StreamWriter(ruta + nombrearchivo, true)/
+//writeline //escribe dentro del archivo
+//swclose //cerrar archivo
