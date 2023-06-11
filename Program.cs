@@ -58,7 +58,8 @@ internal class Program
         //buscar tarea por descripcion
         BuscarTarea(TareasPendientes); 
 
-
+        //guardar horas trabajadas
+        GuardarArchivo(TareasRealizadas);
     }
 
     private static void MostrarTareas(List<Tareas> tareita)
@@ -77,27 +78,31 @@ internal class Program
         string? descripcionbuscada;
         Console.WriteLine("Ingrese la descripcion de la tarea que desea buscar: ");
         descripcionbuscada = Console.ReadLine();
+        int a = 0;
 
         foreach (var tar in tareita)
         {
             if (tar.Descripcion.Contains(descripcionbuscada))
             {
+                a = 1;
                 Console.WriteLine("Tarea encontrada!!!!!");
                 Console.WriteLine("Tarea ID: " + tar.TareaID);
                 Console.WriteLine("Descripcion: " + tar.Descripcion);
                 Console.WriteLine("Duracion: " + tar.Duracion);
             }
-            else
-            {
-                Console.WriteLine("No se encontro la tarea :((");
-            }
+            
+        }
+
+        if (a == 0)
+        {
+            Console.WriteLine("No se encontro la tarea :((");
         }
     }
 
     private static void GuardarArchivo(List<Tareas> tareita)
     {
         int suma = 0;
-        string? ruta = @"C:\taller1\tl1_tp8_2023-guadaatim";
+        string? ruta = @"C:\taller1\tl1_tp8_2023-guadaatim\";
 
         foreach (var tar in tareita)
         {
@@ -105,6 +110,8 @@ internal class Program
         }
 
         StreamWriter sw = new StreamWriter(ruta + "cantidadhorastrabajadas", true);
+        sw.WriteLine("Horas trabajadas: " + suma);
+        sw.Close();
     }
 
 }
