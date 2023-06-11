@@ -14,12 +14,18 @@ string? ruta2 = @"C:\taller1\tl1_tp8_2023-guadaatim\";
 
 StreamWriter index = new StreamWriter(ruta2 + "index.csv", true);
 
-string separados; //= new string[10];
-int i = 0;
-foreach (string archivo in archivos)
+int j = 0;
+
+for (int i = 0; i < archivos.Count; i++)
 {
-    archivo.Split(@"\");
-    
+    string[] separado = archivos[i].Split(@"\");
+    string[] extension = separado[4].Split('.');
+    index.WriteLine(j + ' ' + extension[0] + ' ' + extension[1]);
+    j++;
 }
+
+
+
+
 
 index.Close();
