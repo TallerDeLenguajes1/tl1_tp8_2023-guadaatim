@@ -24,8 +24,4 @@ for (int i = 0; i < archivos.Count; i++)
     j++;
 }
 
-
-
-
-
 index.Close();
