@@ -115,7 +115,3 @@ internal class Program
     }
 
 }
-
-//StreamWriter sw = new StreamWriter(ruta + nombrearchivo, true)/
-//writeline //escribe dentro del archivo
-//swclose //cerrar archivo
